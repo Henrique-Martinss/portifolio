@@ -9,7 +9,6 @@ html {
     scroll-behavior: smooth;
 }
 
-
 :root {
     --primaria: #992609;
     --secundaria: #e49a2b;
@@ -82,7 +81,7 @@ body {
 
 h1 {
     font-size: 3.5rem;
-    color: var(--primaria);
+    color: white;
     font-weight: bold;
     margin: 20px;
 }
