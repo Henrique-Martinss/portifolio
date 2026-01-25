@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/favicon3.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Henrique Martins</title>
 </head>
 
@@ -35,7 +39,9 @@
     </main>
 
     <section id="sobre" class="sobre">
-        <h2 class="sobre-titulo">Sobre Mim</h2>
+        <h2 class="sobre-titulo">
+            <span class="sobre-destaque">SOBRE</span> MIM
+        </h2>
         <div class="sobre-caixa">
             <p class="sobre-paragrafo">
                 Programador Front-End, cursando Análise e Desenvolvimento de Sistemas (ADS), Apaixonado por Tecnologia.
@@ -44,7 +50,9 @@
     </section>
 
     <section id="projetos" class="projetos">
-        <h2 class="projetos-titulo">Meus Projetos</h2>
+        <h2 class="projetos-titulo">
+            MEUS <span class="projetos-destaque">PROJETOS</span>
+        </h2>
         <div class="projetos-caixa">
 
             <div class="projetos-card">
@@ -93,8 +101,8 @@
             event.preventDefault()
 
 
-            const nome = document.getElementById('nome') .value;
-            const mensagem = document.getElementById('mensagem') .value;
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
             const telefone = '5554981507387'
 
             const texto = ` Olá! Me Chamo ${nome}, ${mensagem} `

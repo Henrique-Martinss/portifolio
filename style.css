@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 html {
@@ -102,6 +102,9 @@ h1 {
     margin-bottom: 20px;
 }
 
+.sobre-titulo .sobre-destaque {
+    color: #f0ed5a;
+}
 .sobre-caixa {
     padding: 2rem;
     max-width: 800px;
@@ -119,6 +122,9 @@ h1 {
 
 .projetos {
     padding: 6rem 2rem;
+}
+.projetos-titulo .projetos-destaque {
+    color: #f0ed5a;
 }
 
 .projetos-caixa {
@@ -210,7 +216,7 @@ h1 {
 
 .botao-form {
     color: var(--claro);
-    background: linear-gradient(45deg, var(--primaria), var(--secundaria));
+    background: linear-gradient(135deg, #25D366, #128C7E);
     padding: 1rem 2rem;
     border: none;
     border-radius: 8px;
