@@ -83,12 +83,55 @@ h1 {
     font-size: 3.5rem;
     color: white;
     font-weight: bold;
-    margin: 20px;
+    margin: 10px;
 }
 
 .cabecalho-sub-titulo {
     font-size: 2rem;
     color: var(--claro);
+}
+
+.habilidades-titulo {
+    color: #f0ed5a;
+    font-size: 3rem;
+    text-align: center;
+    padding: 6rem 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.habilidades-caixa {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.habilidades-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    width: 150px;
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.2);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--vidro);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.habilidades-card:hover {
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+    transform: translateY(-10px) scale(1.03);
+}
+
+.habilidades-imagem {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 10px;
 }
 
 .sobre {
@@ -245,6 +288,34 @@ h1 {
     var(--maisEscuro);
 }
 
+.redes-caixa {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.redes-link {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.redes-imagem {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+    border-radius: 28%;
+}
+
+.redes-imagem:hover {
+    transform: scale(1.1);
+}
+.rodape {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
 @keyframes flutuar {
     0%, 100% {
         transform: translateY(0);
@@ -254,8 +325,188 @@ h1 {
     }
 }
 
-.rodape {
+/* ===========================
+   RESPONSIVIDADE (Tablet/Mobile)
+   Cole no final do CSS
+=========================== */
+
+/* Ajuste geral para imagens não estourarem */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tablet (até 1024px) */
+@media (max-width: 1024px) {
+  .navegacao {
+    padding: 1rem;
+  }
+
+  .menu {
+    gap: 1.5rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .cabecalho-sub-titulo {
+    font-size: 1.6rem;
+  }
+
+  .foto-perfil {
+    width: 220px;
+    height: 220px;
+  }
+
+  .habilidades-titulo,
+  .sobre-titulo {
+    font-size: 2.6rem;
+    padding: 4.5rem 1.5rem;
+  }
+
+  .projetos-titulo,
+  .contatos-titulos {
+    font-size: 2.2rem;
+  }
+
+  .sobre,
+  .projetos,
+  .contatos {
+    padding: 5rem 1.5rem;
+  }
+}
+
+/* Mobile (até 768px) */
+@media (max-width: 768px) {
+  /* Menu fixo em mobile: quebra linha e fica confortável */
+  .navegacao {
+    padding: 0.75rem;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    padding: 0.25rem 0;
+  }
+
+  .menu-link {
+    padding: 0.25rem 0;
+    font-size: 0.95rem;
+  }
+
+  /* Evita que o menu fixo cubra a primeira seção ao clicar nos links */
+  #inicio,
+  #habilidades,
+  #sobre,
+  #projetos,
+  #contatos,
+  #redes-sociais {
+    scroll-margin-top: 90px;
+  }
+
+  /* Header/hero */
+  .cabecalho {
+    padding-top: 110px; /* espaço para a navegação fixa */
+    min-height: 100vh;
     text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  .cabecalho-sub-titulo {
+    font-size: 1.2rem;
+  }
+
+  .foto-perfil {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* Títulos das seções */
+  .habilidades-titulo,
+  .sobre-titulo {
+    font-size: 2.1rem;
+    padding: 3.5rem 1rem;
+  }
+
+  .projetos-titulo,
+  .contatos-titulos {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  /* Espaçamento das seções */
+  .sobre,
+  .projetos,
+  .contatos {
+    padding: 4rem 1rem;
+  }
+
+  /* Cards de habilidades: ocupam melhor no mobile */
+  .habilidades-card {
+    width: 140px;
+    padding: 1.5rem;
+  }
+
+  /* Projetos: grid já se adapta, mas reduz gap */
+  .projetos-caixa {
+    gap: 1.25rem;
+  }
+
+  /* Formulário mais confortável */
+  .formulario-contato {
+    padding: 1.5rem;
+  }
+
+  .campo-form {
+    padding: 0.9rem;
+  }
+
+  /* Ícones redes: um pouco menores no mobile */
+  .redes-imagem {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+  .menu {
+    gap: 0.6rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .cabecalho-sub-titulo {
+    font-size: 1.05rem;
+  }
+
+  .foto-perfil {
+    width: 135px;
+    height: 135px;
+  }
+
+  .habilidades-titulo,
+  .sobre-titulo {
+    font-size: 1.8rem;
+  }
+
+  .projetos-titulo,
+  .contatos-titulos {
+    font-size: 1.75rem;
+  }
+
+  .sobre-paragrafo {
+    font-size: 1.05rem;
+  }
+
+  .habilidades-card {
+    width: 100%;
+    max-width: 320px;
+  }
 }
