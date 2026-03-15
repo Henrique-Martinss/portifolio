@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,8 +19,12 @@ html {
 }
 
 body {
-    background-color: var(--maisEscuro);
+    margin: 0;
+    min-height: 100vh;
+    background: black;
     color: var(--claro);
+    position: relative;
+    overflow-x: hidden;
 }
 
 .navegacao {
@@ -63,7 +67,8 @@ body {
 }
 
 .cabecalho {
-    min-height: 100vh;
+    margin: 0px;
+    padding: 200px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -148,6 +153,7 @@ h1 {
 .sobre-titulo .sobre-destaque {
     color: #f0ed5a;
 }
+
 .sobre-caixa {
     padding: 2rem;
     max-width: 800px;
@@ -166,6 +172,13 @@ h1 {
 .projetos {
     padding: 6rem 2rem;
 }
+
+.link-projeto {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .projetos-titulo .projetos-destaque {
     color: #f0ed5a;
 }
@@ -188,15 +201,62 @@ h1 {
     cursor: pointer;
 }
 
+.projetos-card:hover {
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+    transform: translateY(-10px) scale(1.03);
+}
+
+.imagem-container{
+    position: relative;
+}
+
+.projetos-imagem{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.651);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.imagem-container:hover .overlay{
+    opacity: 1;
+}
+
+.ver-projeto{
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 2px solid #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.ver-projeto:hover{
+    background: #ffffff;
+    color: #000000;
+}
+
 .projetos-titulo {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 50px;
-}
-
-.projetos-card:hover {
-    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
-    transform: translateY(-10px) scale(1.03);
 }
 
 .projetos-imagem {
@@ -216,6 +276,99 @@ h1 {
 
 .info-projetos {
     margin-bottom: 5px;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 9999;
+}
+
+.botao-ver-tudo {
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botao-ver-tudo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    background: #111;
+    padding: 40px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 1100px;
+    max-height: 80vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: 0.3s;
+}
+
+.modal.ativo .modal-box {
+    transform: scale(1);
+}
+
+.fechar-modal {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.projetos-popup {
+    background: #1f1f1f;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.projetos-popup:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+    transform: translateY(-10px) scale(1.03);
+}
+
+.projetos-imagem-popup {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
 .contatos {
@@ -283,9 +436,9 @@ h1 {
     z-index: -1;
     opacity: 0.5;
     background:
-    radial-gradient(circle at 10% 20%, rgba(139, 241, 232, 0.514) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(155, 152, 201, 0.247) 0%, transparent 20%),
-    var(--maisEscuro);
+        radial-gradient(circle at 10% 20%, rgba(139, 241, 232, 0.514) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(155, 152, 201, 0.247) 0%, transparent 20%),
+        var(--maisEscuro);
 }
 
 .redes-caixa {
@@ -310,6 +463,7 @@ h1 {
 .redes-imagem:hover {
     transform: scale(1.1);
 }
+
 .rodape {
     text-align: center;
     padding: 1rem 0;
@@ -317,9 +471,12 @@ h1 {
 }
 
 @keyframes flutuar {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-20px);
     }
@@ -327,186 +484,187 @@ h1 {
 
 /* ===========================
    RESPONSIVIDADE (Tablet/Mobile)
-   Cole no final do CSS
 =========================== */
 
 /* Ajuste geral para imagens não estourarem */
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 /* Tablet (até 1024px) */
 @media (max-width: 1024px) {
-  .navegacao {
-    padding: 1rem;
-  }
+    .navegacao {
+        padding: 1rem;
+    }
 
-  .menu {
-    gap: 1.5rem;
-  }
+    .menu {
+        gap: 1.5rem;
+    }
 
-  h1 {
-    font-size: 3rem;
-  }
+    h1 {
+        font-size: 3rem;
+    }
 
-  .cabecalho-sub-titulo {
-    font-size: 1.6rem;
-  }
+    .cabecalho-sub-titulo {
+        font-size: 1.6rem;
+    }
 
-  .foto-perfil {
-    width: 220px;
-    height: 220px;
-  }
+    .foto-perfil {
+        width: 220px;
+        height: 220px;
+    }
 
-  .habilidades-titulo,
-  .sobre-titulo {
-    font-size: 2.6rem;
-    padding: 4.5rem 1.5rem;
-  }
+    .habilidades-titulo,
+    .sobre-titulo {
+        font-size: 2.6rem;
+        padding: 4.5rem 1.5rem;
+    }
 
-  .projetos-titulo,
-  .contatos-titulos {
-    font-size: 2.2rem;
-  }
+    .projetos-titulo,
+    .contatos-titulos {
+        font-size: 2.2rem;
+    }
 
-  .sobre,
-  .projetos,
-  .contatos {
-    padding: 5rem 1.5rem;
-  }
+    .sobre,
+    .projetos,
+    .contatos {
+        padding: 5rem 1.5rem;
+    }
 }
 
 /* Mobile (até 768px) */
 @media (max-width: 768px) {
-  /* Menu fixo em mobile: quebra linha e fica confortável */
-  .navegacao {
-    padding: 0.75rem;
-  }
 
-  .menu {
-    flex-wrap: wrap;
-    gap: 0.75rem 1.25rem;
-    padding: 0.25rem 0;
-  }
+    /* Menu fixo em mobile: quebra linha e fica confortável */
+    .navegacao {
+        padding: 0.75rem;
+    }
 
-  .menu-link {
-    padding: 0.25rem 0;
-    font-size: 0.95rem;
-  }
+    .menu {
+        flex-wrap: wrap;
+        gap: 0.75rem 1.25rem;
+        padding: 0.25rem 0;
+    }
 
-  /* Evita que o menu fixo cubra a primeira seção ao clicar nos links */
-  #inicio,
-  #habilidades,
-  #sobre,
-  #projetos,
-  #contatos,
-  #redes-sociais {
-    scroll-margin-top: 90px;
-  }
+    .menu-link {
+        padding: 0.25rem 0;
+        font-size: 0.95rem;
+    }
 
-  /* Header/hero */
-  .cabecalho {
-    padding-top: 110px; /* espaço para a navegação fixa */
-    min-height: 100vh;
-    text-align: center;
-  }
+    /* Evita que o menu fixo cubra a primeira seção ao clicar nos links */
+    #inicio,
+    #habilidades,
+    #sobre,
+    #projetos,
+    #contatos,
+    #redes-sociais {
+        scroll-margin-top: 90px;
+    }
 
-  h1 {
-    font-size: 2.4rem;
-  }
+    /* Header/hero */
+    .cabecalho {
+        padding-top: 110px;
+        /* espaço para a navegação fixa */
+        min-height: 100vh;
+        text-align: center;
+    }
 
-  .cabecalho-sub-titulo {
-    font-size: 1.2rem;
-  }
+    h1 {
+        font-size: 2.4rem;
+    }
 
-  .foto-perfil {
-    width: 160px;
-    height: 160px;
-  }
+    .cabecalho-sub-titulo {
+        font-size: 1.2rem;
+    }
 
-  /* Títulos das seções */
-  .habilidades-titulo,
-  .sobre-titulo {
-    font-size: 2.1rem;
-    padding: 3.5rem 1rem;
-  }
+    .foto-perfil {
+        width: 160px;
+        height: 160px;
+    }
 
-  .projetos-titulo,
-  .contatos-titulos {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
+    /* Títulos das seções */
+    .habilidades-titulo,
+    .sobre-titulo {
+        font-size: 2.1rem;
+        padding: 3.5rem 1rem;
+    }
 
-  /* Espaçamento das seções */
-  .sobre,
-  .projetos,
-  .contatos {
-    padding: 4rem 1rem;
-  }
+    .projetos-titulo,
+    .contatos-titulos {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
 
-  /* Cards de habilidades: ocupam melhor no mobile */
-  .habilidades-card {
-    width: 140px;
-    padding: 1.5rem;
-  }
+    /* Espaçamento das seções */
+    .sobre,
+    .projetos,
+    .contatos {
+        padding: 4rem 1rem;
+    }
 
-  /* Projetos: grid já se adapta, mas reduz gap */
-  .projetos-caixa {
-    gap: 1.25rem;
-  }
+    /* Cards de habilidades: ocupam melhor no mobile */
+    .habilidades-card {
+        width: 140px;
+        padding: 1.5rem;
+    }
 
-  /* Formulário mais confortável */
-  .formulario-contato {
-    padding: 1.5rem;
-  }
+    /* Projetos: grid já se adapta, mas reduz gap */
+    .projetos-caixa {
+        gap: 1.25rem;
+    }
 
-  .campo-form {
-    padding: 0.9rem;
-  }
+    /* Formulário mais confortável */
+    .formulario-contato {
+        padding: 1.5rem;
+    }
 
-  /* Ícones redes: um pouco menores no mobile */
-  .redes-imagem {
-    width: 44px;
-    height: 44px;
-  }
+    .campo-form {
+        padding: 0.9rem;
+    }
+
+    /* Ícones redes: um pouco menores no mobile */
+    .redes-imagem {
+        width: 44px;
+        height: 44px;
+    }
 }
 
 /* Mobile pequeno (até 480px) */
 @media (max-width: 480px) {
-  .menu {
-    gap: 0.6rem 1rem;
-  }
+    .menu {
+        gap: 0.6rem 1rem;
+    }
 
-  h1 {
-    font-size: 2rem;
-  }
+    h1 {
+        font-size: 2rem;
+    }
 
-  .cabecalho-sub-titulo {
-    font-size: 1.05rem;
-  }
+    .cabecalho-sub-titulo {
+        font-size: 1.05rem;
+    }
 
-  .foto-perfil {
-    width: 135px;
-    height: 135px;
-  }
+    .foto-perfil {
+        width: 135px;
+        height: 135px;
+    }
 
-  .habilidades-titulo,
-  .sobre-titulo {
-    font-size: 1.8rem;
-  }
+    .habilidades-titulo,
+    .sobre-titulo {
+        font-size: 1.8rem;
+    }
 
-  .projetos-titulo,
-  .contatos-titulos {
-    font-size: 1.75rem;
-  }
+    .projetos-titulo,
+    .contatos-titulos {
+        font-size: 1.75rem;
+    }
 
-  .sobre-paragrafo {
-    font-size: 1.05rem;
-  }
+    .sobre-paragrafo {
+        font-size: 1.05rem;
+    }
 
-  .habilidades-card {
-    width: 100%;
-    max-width: 320px;
-  }
+    .habilidades-card {
+        width: 100%;
+        max-width: 320px;
+    }
 }

@@ -13,8 +13,6 @@
 </head>
 
 <body>
-    <div class="particulas"></div>
-
     <nav class="navegacao">
         <ul class="menu">
             <li>
@@ -82,57 +80,209 @@
         <div class="projetos-caixa">
 
             <div class="projetos-card">
-                <img src="img/projeto1.png" alt="Projeto 1" class="projetos-imagem">
+                <div class="imagem-container">
+                    <img src="img/academia.png" alt="Projeto 1" class="projetos-imagem">
+                    <div class="overlay">
+                        <a href="https://henrique-martinss.github.io/academia/" target="_blank"
+                            rel="noopener noreferrer" class="ver-projeto">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </div>
                 <div class="caixa-texto-projeto">
-                    <h3 class="info-projetos">Loja Online</h3>
-                    <p class="paragrafo-projetos">Loja Online Moderna</p>
+                    <h3 class="info-projetos">Academia</h3>
+                    <p class="paragrafo-projetos">Desenvolvimento de uma landing page moderna para academia, com
+                        foco em
+                        design atrativo, organização, responsividade das informações e boa experiência do usuário.
+                        🏋️‍♂️</p>
                 </div>
             </div>
 
             <div class="projetos-card">
-                <img src="img/projeto2.png" alt="Projeto 2" class="projetos-imagem">
+                <div class="imagem-container">
+                    <img src="img/advocacia.png" alt="Projeto 2" class="projetos-imagem">
+                    <div class="overlay">
+                        <a href="https://henrique-martinss.github.io/advocacia/" target="_blank"
+                            rel="noopener noreferrer" class="ver-projeto">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </div>
                 <div class="caixa-texto-projeto">
-                    <h3 class="info-projetos">Loja Online</h3>
-                    <p class="paragrafo-projetos">Loja Online Moderna</p>
+                    <h3 class="info-projetos">Advocacia</h3>
+                    <p class="paragrafo-projetos">Desenvolvimento de um site institucional para advocacia, com foco em
+                        design profissional, organização das informações e experiência clara para o usuário. ⚖️</p>
                 </div>
             </div>
 
             <div class="projetos-card">
-                <img src="img/projeto3.png" alt="Projeto 3" class="projetos-imagem">
+                <div class="imagem-container">
+                    <img src="img/clinica-estetica.png" alt="Projeto 3" class="projetos-imagem">
+                    <div class="overlay">
+                        <a href="https://henrique-martinss.github.io/clinica-estetica/" target="_blank"
+                            rel="noopener noreferrer" class="ver-projeto">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </div>
                 <div class="caixa-texto-projeto">
-                    <h3 class="info-projetos">Loja Online</h3>
-                    <p class="paragrafo-projetos">Loja Online Moderna</p>
+                    <h3 class="info-projetos">Clínica Estética</h3>
+                    <p class="paragrafo-projetos">Desenvolvimento de um site para clínica estética, com visual moderno e
+                        foco na apresentação de tratamentos, serviços e identidade da marca. ✨</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <div class="imagem-container">
+                    <img src="img/clinica-medica.png" alt="Projeto 4" class="projetos-imagem">
+                    <div class="overlay">
+                        <a href="https://henrique-martinss.github.io/clinica-medica/" target="_blank"
+                            rel="noopener noreferrer" class="ver-projeto">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </div>
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Clínica Médica</h3>
+                    <p class="paragrafo-projetos">Desenvolvimento de um site para clínica médica, com visual
+                        profissional e
+                        foco na apresentação de serviços, médicos e informações importantes. 🏥</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <div class="imagem-container">
+                    <img src="img/coach-consultor.png" alt="Projeto 5" class="projetos-imagem">
+                    <div class="overlay">
+                        <a href="https://henrique-martinss.github.io/coach-consultor/" target="_blank"
+                            rel="noopener noreferrer" class="ver-projeto">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </div>
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Coach Consultor</h3>
+                    <p class="paragrafo-projetos">Desenvolvimento de uma landing page para coach/consultor, com layout
+                        estratégico e seções pensadas para apresentar serviços, metodologia e autoridade profissional.
+                        🚀</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <div class="imagem-container">
+                    <img src="img/consultorio-odontologico.png" alt="Projeto 5" class="projetos-imagem">
+                    <div class="overlay">
+                        <a href="https://henrique-martinss.github.io/consultorio-odontologico/" target="_blank"
+                            rel="noopener noreferrer" class="ver-projeto">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </div>
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Consultório Odontológico</h3>
+                    <p class="paragrafo-projetos">Desenvolvimento de um site para consultório odontológico, com design
+                        limpo e estrutura voltada para apresentar tratamentos, equipe e informações da clínica. 🦷</p>
                 </div>
             </div>
 
         </div>
     </section>
 
+    <div id="modalProjetos" class="modal">
+        <div class="modal-box">
+            <button class="fechar-modal" id="fecharModal">
+                ✕
+            </button>
+            <h2>Todos os Projetos</h2>
+            <div class="grid-projetos">
+                <div class="projetos-popup">
+                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
+                    <div class="caixa-texto-projeto">
+                        <h3 class="info-projetos">Sistema Login</h3>
+                        <p class="paragrafo-projetos">HTML CSS JS</p>
+                    </div>
+                </div>
+
+                <div class="projetos-popup">
+                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
+                    <div class="caixa-texto-projeto">
+                        <h3 class="info-projetos">Sistema Login</h3>
+                        <p class="paragrafo-projetos">HTML CSS JS</p>
+                    </div>
+                </div>
+
+                <div class="projetos-popup">
+                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
+                    <div class="caixa-texto-projeto">
+                        <h3 class="info-projetos">Sistema Login</h3>
+                        <p class="paragrafo-projetos">HTML CSS JS</p>
+                    </div>
+                </div>
+
+                <div class="projetos-popup">
+                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
+                    <div class="caixa-texto-projeto">
+                        <h3 class="info-projetos">Sistema Login</h3>
+                        <p class="paragrafo-projetos">HTML CSS JS</p>
+                    </div>
+                </div>
+
+                <div class="projetos-popup">
+                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
+                    <div class="caixa-texto-projeto">
+                        <h3 class="info-projetos">Sistema Login</h3>
+                        <p class="paragrafo-projetos">HTML CSS JS</p>
+                    </div>
+                </div>
+
+                <div class="projetos-popup">
+                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
+                    <div class="caixa-texto-projeto">
+                        <h3 class="info-projetos">Sistema Login</h3>
+                        <p class="paragrafo-projetos">HTML CSS JS</p>
+                    </div>
+                </div>
+
+                <div class="projetos-popup">
+                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
+                    <div class="caixa-texto-projeto">
+                        <h3 class="info-projetos">Sistema Login</h3>
+                        <p class="paragrafo-projetos">HTML CSS JS</p>
+                    </div>
+                </div>
+
+                <div class="projetos-popup">
+                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
+                    <div class="caixa-texto-projeto">
+                        <h3 class="info-projetos">Sistema Login</h3>
+                        <p class="paragrafo-projetos">HTML CSS JS</p>
+                    </div>
+                </div>
+
+                <div class="projetos-popup">
+                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
+                    <div class="caixa-texto-projeto">
+                        <h3 class="info-projetos">Sistema Login</h3>
+                        <p class="paragrafo-projetos">HTML CSS JS</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <section id="contatos" class="contatos">
         <h2 class="contatos-titulos">Entre em Contato</h2>
 
         <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
             <div class="grupo-form">
-                <input
-                    type="text"
-                    name="nome"
-                    placeholder="Nome"
-                    class="campo-form"
-                    id="nome"
-                    autocomplete="name"
-                    required
-                    aria-label="Seu nome">
+                <input type="text" name="nome" placeholder="Nome" class="campo-form" id="nome" autocomplete="name"
+                    required aria-label="Seu nome">
             </div>
 
             <div class="grupo-form">
-                <textarea
-                    class="campo-form"
-                    name="mensagem"
-                    placeholder="Digite sua Mensagem"
-                    rows="10"
-                    id="mensagem"
-                    required
-                    aria-label="Sua mensagem"></textarea>
+                <textarea class="campo-form" name="mensagem" placeholder="Digite sua Mensagem" rows="10" id="mensagem"
+                    required aria-label="Sua mensagem"></textarea>
             </div>
 
             <button type="submit" class="botao-form">Enviar Whatsapp</button>
@@ -154,11 +304,30 @@
 
             window.open(url, '_blank')
         }
+
+        const modal = document.getElementById("modalProjetos")
+        const abrir = document.getElementById("abrirProjetos")
+        const fechar = document.getElementById("fecharModal")
+
+        abrir.addEventListener("click", () => {
+            modal.classList.add("ativo")
+        })
+
+        fechar.addEventListener("click", () => {
+            modal.classList.remove("ativo")
+        })
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.classList.remove("ativo")
+            }
+        })
     </script>
 
     <section id="redes-sociais" class="redes-sociais">
         <div class="redes-caixa">
-            <a href="https://linkedin.com/in/henrique-martins-1a9982203" target="_blank" rel="noopener noreferrer" class="redes-link">
+            <a href="https://linkedin.com/in/henrique-martins-1a9982203" target="_blank" rel="noopener noreferrer"
+                class="redes-link">
                 <img src="img/linkedin.png" alt="LinkedIn" class="redes-imagem">
             </a>
             <a href="https://github.com/Henrique-Martinss" target="_blank" rel="noopener noreferrer" class="redes-link">
@@ -170,6 +339,7 @@
     <footer id="rodape" class="rodape">
         <p class="rodape-texto">Copyright © Henrique Martins 2026 – Todos os direitos reservados</p>
     </footer>
+
 
 </body>
 
