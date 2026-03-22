@@ -9,11 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <title>Henrique Martins</title>
 </head>
 
 <body>
     <nav class="navegacao">
+        <div class="nome">Henrique Martins</div>
         <ul class="menu">
             <li>
                 <a href="#inicio" class="menu-link">Início</a>
@@ -33,11 +35,41 @@
         </ul>
     </nav>
 
-    <main id="inicio" class="cabecalho">
-        <img src="img/perfil.png" alt="Foto de Henrique Martins" class="foto-perfil">
-        <h1>Henrique Martins</h1>
-        <p class="cabecalho-sub-titulo">Desenvolvedor Front-End</p>
-    </main>
+    <div class="topo">
+        <main id="inicio" class="cabecalho">
+            <div class="perfil-container">
+                <img src="img/perfil.png" alt="Foto de Henrique Martins" class="foto-perfil">
+                <div class="sub-perfil">
+                    <div class="localizacao">
+                        <svg class="icone-local" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                            <circle cx="12" cy="9" r="2.5" fill="white" />
+                        </svg>
+                        <span class="caxias">Caxias do Sul - RS</span>
+                    </div>
+
+                    <a href="cv-henrique.pdf" download class="botao-cv">
+                        Baixar CV PDF
+                    </a>
+                </div>
+            </div>
+            <div class="info">
+                <h1><strong>Henrique Martins</strong></h1>
+                <p class="cabecalho-sub-titulo">Desenvolvedor Front-End | FullStack</p>
+            </div>
+        </main>
+
+        <section id="sobre" class="sobre">
+            <div class="sobre-caixa">
+                <p class="sobre-paragrafo">
+                    Programador Front-End, cursando Análise e Desenvolvimento de Sistemas (ADS), Apaixonado por
+                    Tecnologia.
+                </p>
+            </div>
+        </section>
+
+    </div>
 
     <section id="habilidades" class="habilidades">
         <h2 class="habilidades-titulo">
@@ -46,30 +78,39 @@
         <div class="habilidades-caixa">
 
             <div class="habilidades-card">
-                <img src="img/html.png" alt="HTML5" class="habilidades-imagem">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="habilidades-imagem">
                 <h3 class="habilidades-nome">HTML5</h3>
             </div>
 
             <div class="habilidades-card">
-                <img src="img/css.png" alt="CSS3" class="habilidades-imagem">
-                <h3 class="habilidades-nome">CSS3</h3>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" class="habilidades-imagem">
+                <h3 class="habilidades-nome">CSS</h3>
             </div>
 
             <div class="habilidades-card">
-                <img src="img/javascript.png" alt="JavaScript" class="habilidades-imagem">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="habilidades-imagem">
                 <h3 class="habilidades-nome">JavaScript</h3>
             </div>
-        </div>
-    </section>
 
-    <section id="sobre" class="sobre">
-        <h2 class="sobre-titulo">
-            <span class="sobre-destaque">SOBRE</span> MIM
-        </h2>
-        <div class="sobre-caixa">
-            <p class="sobre-paragrafo">
-                Programador Front-End, cursando Análise e Desenvolvimento de Sistemas (ADS), Apaixonado por Tecnologia.
-            </p>
+            <div class="habilidades-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" class="habilidades-imagem">
+                <h3 class="habilidades-nome">React</h3>
+            </div>
+
+            <div class="habilidades-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="git" class="habilidades-imagem">
+                <h3 class="habilidades-nome">git</h3>
+            </div>
+
+            <div class="habilidades-card">
+                <img src="img/github.png" alt="GitHub" class="habilidades-imagem">
+                <h3 class="habilidades-nome">GitHub</h3>
+            </div>
+
+            <!-- <div class="habilidades-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.Js" class="habilidades-imagem">
+                <h3 class="habilidades-nome">Node.js</h3>
+            </div> -->
         </div>
     </section>
 
@@ -189,90 +230,70 @@
     </section>
 
     <div class="container-botao-projetos">
-    <button id="abrirProjetos" class="botao-ver-tudo">
-        Ver todos os projetos
-    </button>
+        <button id="abrirProjetos" class="botao-ver-tudo">
+            Ver todos os projetos
+        </button>
     </div>
 
     <div id="modalProjetos" class="modal">
         <div class="modal-box">
-            <button class="fechar-modal" id="fecharModal">
-                ✕
-            </button>
+            <button class="fechar-modal" id="fecharModal">✕</button>
             <h2>Todos os Projetos</h2>
+
             <div class="grid-projetos">
+
                 <div class="projetos-popup">
-                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
+                    <div class="imagem-container">
+                        <img src="img/contabilidade.png" class="projetos-imagem-popup">
+                        <div class="overlay">
+                            <a href="https://henrique-martinss.github.io/contabilidade/" target="_blank"
+                                rel="noopener noreferrer" class="ver-projeto">Ver Projeto</a>
+                        </div>
+                    </div>
+
                     <div class="caixa-texto-projeto">
-                        <h3 class="info-projetos">Sistema Login</h3>
-                        <p class="paragrafo-projetos">HTML CSS JS</p>
+                        <h3>Contabilidade</h3>
+                        <p>Desenvolvimento de um site para contabilidade, com estrutura organizada e foco na
+                            apresentação clara dos serviços, áreas de atuação e informações da empresa. 📊</p>
                     </div>
                 </div>
 
                 <div class="projetos-popup">
-                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
+                    <div class="imagem-container">
+                        <img src="img/mario-bros.png" class="projetos-imagem-popup">
+                        <div class="overlay">
+                            <a href="https://henrique-martinss.github.io/mario-bros/" target="_blank"
+                                rel="noopener noreferrer" class="ver-projeto">Ver Projeto</a>
+                        </div>
+                    </div>
+
                     <div class="caixa-texto-projeto">
-                        <h3 class="info-projetos">Sistema Login</h3>
-                        <p class="paragrafo-projetos">HTML CSS JS</p>
+                        <h3>Irmãos Mario</h3>
+                        <p>Desenvolvimento de uma landing page fictícia para os Irmãos Mario, com temática criativa de
+                            serviços de encanamento e foco em uma apresentação divertida e visualmente envolvente.🔧
+                        </p>
                     </div>
                 </div>
 
                 <div class="projetos-popup">
-                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
+                    <div class="imagem-container">
+                        <img src="img/espera.png" class="projetos-imagem-popup">
+                        <div class="overlay">
+                            <a href="https://henrique-martinss.github.io/escola-idiomas/" target="_blank"
+                                rel="noopener noreferrer" class="ver-projeto">Ver Projeto</a>
+                        </div>
+                    </div>
+
                     <div class="caixa-texto-projeto">
-                        <h3 class="info-projetos">Sistema Login</h3>
-                        <p class="paragrafo-projetos">HTML CSS JS</p>
+                        <h3>Aguarde</h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum omnis vero minima eos
+                            laboriosam voluptate quas assumenda facilis quis quidem rem vitae, reprehenderit
+                            consequuntur quisquam! Laborum, sapiente. Culpa, veritatis voluptatum!
+                        </p>
                     </div>
                 </div>
 
-                <div class="projetos-popup">
-                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
-                    <div class="caixa-texto-projeto">
-                        <h3 class="info-projetos">Sistema Login</h3>
-                        <p class="paragrafo-projetos">HTML CSS JS</p>
-                    </div>
-                </div>
-
-                <div class="projetos-popup">
-                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
-                    <div class="caixa-texto-projeto">
-                        <h3 class="info-projetos">Sistema Login</h3>
-                        <p class="paragrafo-projetos">HTML CSS JS</p>
-                    </div>
-                </div>
-
-                <div class="projetos-popup">
-                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
-                    <div class="caixa-texto-projeto">
-                        <h3 class="info-projetos">Sistema Login</h3>
-                        <p class="paragrafo-projetos">HTML CSS JS</p>
-                    </div>
-                </div>
-
-                <div class="projetos-popup">
-                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
-                    <div class="caixa-texto-projeto">
-                        <h3 class="info-projetos">Sistema Login</h3>
-                        <p class="paragrafo-projetos">HTML CSS JS</p>
-                    </div>
-                </div>
-
-                <div class="projetos-popup">
-                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
-                    <div class="caixa-texto-projeto">
-                        <h3 class="info-projetos">Sistema Login</h3>
-                        <p class="paragrafo-projetos">HTML CSS JS</p>
-                    </div>
-                </div>
-
-                <div class="projetos-popup">
-                    <img src="img/projeto1.png" alt="Projeto 3" class="projetos-imagem-popup">
-                    <div class="caixa-texto-projeto">
-                        <h3 class="info-projetos">Sistema Login</h3>
-                        <p class="paragrafo-projetos">HTML CSS JS</p>
-                    </div>
-                </div>
-
+                <!-- repete aqui os outros projetos -->
             </div>
         </div>
     </div>
@@ -315,9 +336,11 @@
         const abrir = document.getElementById("abrirProjetos")
         const fechar = document.getElementById("fecharModal")
 
-        abrir.addEventListener("click", () => {
-            modal.classList.add("ativo")
-        })
+        if (abrir) {
+            abrir.addEventListener("click", () => {
+                modal.classList.add("ativo")
+            })
+        }
 
         fechar.addEventListener("click", () => {
             modal.classList.remove("ativo")
