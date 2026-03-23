@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/logoste.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <title>Henrique Martins</title>
+</head>
+
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+        <p class="loading-text">Carregando portfólio...</p>
+    </div>
+
+    <nav class="navegacao">
+        <div class="nome">Henrique Martins</div>
+        <ul class="menu">
+            <li>
+                <a href="#inicio" class="menu-link">Início</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+            <li>
+                <a href="#habilidades" class="menu-link">Habilidades</a>
+            </li>
+            <li>
+                <a href="#projetos" class="menu-link">Projetos</a>
+            </li>
+            <li>
+                <a href="#contatos" class="menu-link">Contato</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="topo">
+        <main id="inicio" class="cabecalho">
+            <div class="perfil-container">
+                <img src="img/perfil.png" alt="Foto de Henrique Martins" class="foto-perfil">
+                <div class="sub-perfil">
+                    <div class="localizacao">
+                        <svg class="icone-local" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                            <circle cx="12" cy="9" r="2.5" fill="white" />
+                        </svg>
+                        <span class="caxias">Caxias do Sul - RS</span>
+                    </div>
+
+                    <a href="cv-henrique.pdf" download class="botao-cv">
+                        Baixar CV PDF
+                    </a>
+                </div>
+            </div>
+            <div class="info">
+                <h1><strong>Henrique Martins</strong></h1>
+                <p class="cabecalho-sub-titulo">Desenvolvedor Front-End | FullStack</p>
+            </div>
+        </main>
+
+        <section id="sobre" class="sobre">
+            <div class="sobre-caixa">
+                <p class="sobre-paragrafo">
+                    Programador Front-End, cursando Análise e Desenvolvimento de Sistemas (ADS), Apaixonado por
+                    Tecnologia.
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <section id="habilidades" class="habilidades">
+        <h2 class="habilidades-titulo">
+            <span class="habilidades-destaque">HABILIDADES</span>
+        </h2>
+        <div class="habilidades-caixa">
+
+            <div class="habilidades-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                    alt="HTML5" class="habilidades-imagem">
+                <h3 class="habilidades-nome">HTML5</h3>
+            </div>
+
+            <div class="habilidades-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3"
+                    class="habilidades-imagem">
+                <h3 class="habilidades-nome">CSS</h3>
+            </div>
+
+            <div class="habilidades-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                    alt="JavaScript" class="habilidades-imagem">
+                <h3 class="habilidades-nome">JavaScript</h3>
+            </div>
+
+            <div class="habilidades-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                    alt="React" class="habilidades-imagem">
+                <h3 class="habilidades-nome">React</h3>
+            </div>
+
+            <div class="habilidades-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="git"
+                    class="habilidades-imagem">
+                <h3 class="habilidades-nome">git</h3>
+            </div>
+
+            <div class="habilidades-card">
+                <img src="img/github.png" alt="GitHub" class="habilidades-imagem">
+                <h3 class="habilidades-nome">GitHub</h3>
+            </div>
+
+            <!-- <div class="habilidades-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.Js" class="habilidades-imagem">
+                <h3 class="habilidades-nome">Node.js</h3>
+            </div> -->
+        </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+        <h2 class="projetos-titulo">
+            MEUS <span class="projetos-destaque">PROJETOS</span>
+        </h2>
+        <div class="projetos-caixa">
+
+            <div class="projetos-card">
+                <div class="imagem-container">
+                    <img src="img/academia.png" alt="Projeto 1" class="projetos-imagem">
+                    <div class="overlay">
+                        <a href="https://henrique-martinss.github.io/academia/" target="_blank"
+                            rel="noopener noreferrer" class="ver-projeto">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </div>
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Academia</h3>
+                    <p class="paragrafo-projetos">Desenvolvimento de uma landing page moderna para academia, com
+                        foco em
+                        design atrativo, organização, responsividade das informações e boa experiência do usuário.
+                        🏋️‍♂️</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <div class="imagem-container">
+                    <img src="img/advocacia.png" alt="Projeto 2" class="projetos-imagem">
+                    <div class="overlay">
+                        <a href="https://henrique-martinss.github.io/advocacia/" target="_blank"
+                            rel="noopener noreferrer" class="ver-projeto">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </div>
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Advocacia</h3>
+                    <p class="paragrafo-projetos">Desenvolvimento de um site institucional para advocacia, com foco em
+                        design profissional, organização das informações e experiência clara para o usuário. ⚖️</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <div class="imagem-container">
+                    <img src="img/clinica-estetica.png" alt="Projeto 3" class="projetos-imagem">
+                    <div class="overlay">
+                        <a href="https://henrique-martinss.github.io/clinica-estetica/" target="_blank"
+                            rel="noopener noreferrer" class="ver-projeto">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </div>
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Clínica Estética</h3>
+                    <p class="paragrafo-projetos">Desenvolvimento de um site para clínica estética, com visual moderno e
+                        foco na apresentação de tratamentos, serviços e identidade da marca. ✨</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <div class="imagem-container">
+                    <img src="img/clinica-medica.png" alt="Projeto 4" class="projetos-imagem">
+                    <div class="overlay">
+                        <a href="https://henrique-martinss.github.io/clinica-medica/" target="_blank"
+                            rel="noopener noreferrer" class="ver-projeto">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </div>
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Clínica Médica</h3>
+                    <p class="paragrafo-projetos">Desenvolvimento de um site para clínica médica, com visual
+                        profissional e
+                        foco na apresentação de serviços, médicos e informações importantes. 🏥</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <div class="imagem-container">
+                    <img src="img/coach-consultor.png" alt="Projeto 5" class="projetos-imagem">
+                    <div class="overlay">
+                        <a href="https://henrique-martinss.github.io/coach-consultor/" target="_blank"
+                            rel="noopener noreferrer" class="ver-projeto">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </div>
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Coach Consultor</h3>
+                    <p class="paragrafo-projetos">Desenvolvimento de uma landing page para coach/consultor, com layout
+                        estratégico e seções pensadas para apresentar serviços, metodologia e autoridade profissional.
+                        🚀</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <div class="imagem-container">
+                    <img src="img/consultorio-odontologico.png" alt="Projeto 5" class="projetos-imagem">
+                    <div class="overlay">
+                        <a href="https://henrique-martinss.github.io/consultorio-odontologico/" target="_blank"
+                            rel="noopener noreferrer" class="ver-projeto">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </div>
+                <div class="caixa-texto-projeto">
+                    <h3 class="info-projetos">Consultório Odontológico</h3>
+                    <p class="paragrafo-projetos">Desenvolvimento de um site para consultório odontológico, com design
+                        limpo e estrutura voltada para apresentar tratamentos, equipe e informações da clínica. 🦷</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="container-botao-projetos">
+        <button id="abrirProjetos" class="botao-ver-tudo">
+            Ver todos os projetos
+        </button>
+    </div>
+
+    <div id="modalProjetos" class="modal">
+        <div class="modal-box">
+            <button class="fechar-modal" id="fecharModal">✕</button>
+            <h2>Todos os Projetos</h2>
+
+            <div class="grid-projetos">
+
+                <div class="projetos-popup">
+                    <div class="imagem-container">
+                        <img src="img/contabilidade.png" class="projetos-imagem-popup">
+                        <div class="overlay">
+                            <a href="https://henrique-martinss.github.io/contabilidade/" target="_blank"
+                                rel="noopener noreferrer" class="ver-projeto">Ver Projeto</a>
+                        </div>
+                    </div>
+
+                    <div class="caixa-texto-projeto">
+                        <h3>Contabilidade</h3>
+                        <p>Desenvolvimento de um site para contabilidade, com estrutura organizada e foco na
+                            apresentação clara dos serviços, áreas de atuação e informações da empresa. 📊</p>
+                    </div>
+                </div>
+
+                <div class="projetos-popup">
+                    <div class="imagem-container">
+                        <img src="img/mario-bros.png" class="projetos-imagem-popup">
+                        <div class="overlay">
+                            <a href="https://henrique-martinss.github.io/mario-bros/" target="_blank"
+                                rel="noopener noreferrer" class="ver-projeto">Ver Projeto</a>
+                        </div>
+                    </div>
+
+                    <div class="caixa-texto-projeto">
+                        <h3>Irmãos Mario</h3>
+                        <p>Desenvolvimento de uma landing page fictícia para os Irmãos Mario, com temática criativa de
+                            serviços de encanamento e foco em uma apresentação divertida e visualmente envolvente.🔧
+                        </p>
+                    </div>
+                </div>
+
+                <div class="projetos-popup">
+                    <div class="imagem-container">
+                        <img src="img/espera.png" class="projetos-imagem-popup">
+                        <div class="overlay">
+                            <a href="https://henrique-martinss.github.io/escola-idiomas/" target="_blank"
+                                rel="noopener noreferrer" class="ver-projeto">Ver Projeto</a>
+                        </div>
+                    </div>
+
+                    <div class="caixa-texto-projeto">
+                        <h3>Aguarde</h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum omnis vero minima eos
+                            laboriosam voluptate quas assumenda facilis quis quidem rem vitae, reprehenderit
+                            consequuntur quisquam! Laborum, sapiente. Culpa, veritatis voluptatum!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- repete aqui os outros projetos -->
+            </div>
+        </div>
+    </div>
+
+    <section id="contatos" class="contatos">
+        <h2 class="contatos-titulos">Entre em Contato</h2>
+
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+            <div class="grupo-form">
+                <input type="text" name="nome" placeholder="Nome" class="campo-form" id="nome" autocomplete="name"
+                    required aria-label="Seu nome">
+            </div>
+
+            <div class="grupo-form">
+                <textarea class="campo-form" name="mensagem" placeholder="Digite sua Mensagem" rows="10" id="mensagem"
+                    required aria-label="Sua mensagem"></textarea>
+            </div>
+
+            <button type="submit" class="botao-form">Enviar Whatsapp</button>
+        </form>
+    </section>
+
+    <script>
+        function enviarWhats(event) {
+            event.preventDefault()
+
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '5554981507387'
+
+            const texto = ` Olá! Me Chamo ${nome}, ${mensagem} `
+            const msgFormatada = encodeURIComponent(texto)
+
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+
+            window.open(url, '_blank')
+        }
+
+        const modal = document.getElementById("modalProjetos")
+        const abrir = document.getElementById("abrirProjetos")
+        const fechar = document.getElementById("fecharModal")
+
+        if (abrir) {
+            abrir.addEventListener("click", () => {
+                modal.classList.add("ativo")
+            })
+        }
+
+        fechar.addEventListener("click", () => {
+            modal.classList.remove("ativo")
+        })
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.classList.remove("ativo")
+            }
+        })
+
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+            setTimeout(() => {
+                loader.classList.add("hidden");
+            }, 800);
+        });
+    </script>
+
+    <section id="redes-sociais" class="redes-sociais">
+        <div class="redes-caixa">
+            <a href="https://linkedin.com/in/henrique-martins-1a9982203" target="_blank" rel="noopener noreferrer"
+                class="redes-link">
+                <img src="img/linkedin.png" alt="LinkedIn" class="redes-imagem">
+            </a>
+            <a href="https://github.com/Henrique-Martinss" target="_blank" rel="noopener noreferrer" class="redes-link">
+                <img src="img/github.png" alt="GitHub" class="redes-imagem">
+            </a>
+        </div>
+    </section>
+
+    <footer id="rodape" class="rodape">
+        <p class="rodape-texto">Copyright © Henrique Martins 2026 – Todos os direitos reservados</p>
+    </footer>
+
+
+</body>
+
+</html>
