@@ -602,6 +602,15 @@ h1 {
 
 @media screen and (max-width: 768px) {
 
+    .nome {
+        position: static;
+        font-size: 24px;
+    }
+
+    .menu-link {
+        font-size: 18px;
+    }
+    
     .navegacao {
         flex-direction: column;
         gap: 10px;
@@ -612,19 +621,10 @@ h1 {
         padding-top: 100px;
     }
 
-    .navegacao .menu {
+    .menu {
         display: flex;
         align-items: center;
         gap: 1rem;
-    }
-
-    .menu-link {
-        font-size: 16px;
-    }
-
-    .nome {
-        position: static;
-        font-size: 20px;
     }
 
     .cabecalho {
