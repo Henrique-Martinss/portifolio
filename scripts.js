@@ -1,170 +1,131 @@
-function enviarWhats(event) {
-    event.preventDefault()
-
-    const nome = document.getElementById('nome').value;
-    const mensagem = document.getElementById('mensagem').value;
-    const telefone = '5554981507387'
-
-    const texto = ` Olá! Me Chamo ${nome}, ${mensagem} `
-    const msgFormatada = encodeURIComponent(texto)
-
-    const url = `https://wa.me/${telefone}?text=${msgFormatada}`
-
-    window.open(url, '_blank')
-}
-
-const modal = document.getElementById("modalProjetos")
-const abrir = document.getElementById("abrirProjetos")
-const fechar = document.getElementById("fecharModal")
-
-if (abrir) {
-    abrir.addEventListener("click", () => {
-        modal.classList.add("ativo")
-    })
-}
-
-fechar.addEventListener("click", () => {
-    modal.classList.remove("ativo")
-})
-
-modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-        modal.classList.remove("ativo")
-    }
-})
-
+// ===============================
+// 1. LOADER (TELA DE CARREGAMENTO)
+// ===============================
+// Esta função garante que o loader suma, não importa o que aconteça
 window.addEventListener("load", () => {
     const loader = document.getElementById("loader");
-    setTimeout(() => {
+    if (loader) {
         loader.classList.add("hidden");
-    }, 1000);
+    }
 });
 
-const mouse = {
-    x: null,
-    y: null,
-    radius: 120
-};
+// Segurança extra: se o loader não sumir em 3 segundos, forçamos a saída
+setTimeout(() => {
+    const loader = document.getElementById("loader");
+    if (loader && !loader.classList.contains("hidden")) {
+        loader.classList.add("hidden");
+    }
+}, 3000);
 
-document.addEventListener("mousemove", (event) => {
-    mouse.x = event.clientX;
-    mouse.y = event.clientY;
-});
+// ===============================
+// 2. MODAL DE PROJETOS
+// ===============================
+const modal = document.getElementById("modalProjetos");
+const abrir = document.getElementById("abrirProjetos");
+const fechar = document.getElementById("fecharModal");
 
+if (abrir && modal) {
+    abrir.addEventListener("click", () => modal.classList.add("ativo"));
+}
+if (fechar && modal) {
+    fechar.addEventListener("click", () => modal.classList.remove("ativo"));
+}
+if (modal) {
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) modal.classList.remove("ativo");
+    });
+}
+
+// ===============================
+// 3. SISTEMA DE PARTÍCULAS (CANVAS)
+// ===============================
 const canvas = document.getElementById("particulas");
-const ctx = canvas.getContext("2d");
+if (canvas) {
+    const ctx = canvas.getContext("2d");
+    const mouse = { x: null, y: null, radius: 120 };
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    window.addEventListener("mousemove", (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
 
-let particlesArray = [];
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-class particulas {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
-        this.angulo = Math.random() * Math.PI * 1;
-        this.velRotacao = (Math.random() - 0.5) * 0.01;
-    }
+    let particlesArray = [];
 
-    update() {
-        let dx = mouse.x - this.x;
-        let dy = mouse.y - this.y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < mouse.radius) {
-
-            if (distance > 10) {
-                this.x += dx * 0.03;
-                this.y += dy * 0.03;
-            }
-
-            this.angulo += this.velRotacao;
-
-            this.x += Math.cos(this.angulo) * 1.5;
-            this.y += Math.sin(this.angulo) * 1.5;
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2;
+            this.speedX = (Math.random() - 0.5) * 0.5;
+            this.speedY = (Math.random() - 0.5) * 0.5;
+            this.angulo = Math.random() * Math.PI;
+            this.velRotacao = (Math.random() - 0.5) * 0.01;
         }
-
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        update() {
+            let dx = mouse.x - this.x;
+            let dy = mouse.y - this.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < mouse.radius) {
+                if (distance > 10) {
+                    this.x += dx * 0.03;
+                    this.y += dy * 0.03;
+                }
+                this.angulo += this.velRotacao;
+                this.x += Math.cos(this.angulo) * 1.5;
+                this.y += Math.sin(this.angulo) * 1.5;
+            }
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        }
+        draw() {
+            ctx.fillStyle = "rgba(0, 229, 255, 0.3)";
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
     }
 
-    draw() {
-        ctx.fillStyle = "rgba(0, 229, 255, 0.3)";
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
+    function init() {
+        particlesArray = [];
+        for (let i = 0; i < 120; i++) particlesArray.push(new Particle());
     }
-}
 
-function init() {
-    particlesArray = [];
-    for (let i = 0; i < 120; i++) {
-        particlesArray.push(new particulas());
-    }
-}
-
-function conectarParticulas() {
-    for (let a = 0; a < particlesArray.length; a++) {
-        for (let b = a; b < particlesArray.length; b++) {
-
-            let dx = particlesArray[a].x - particlesArray[b].x;
-            let dy = particlesArray[a].y - particlesArray[b].y;
-            let distance = dx * dx + dy * dy;
-
-            if (distance < 12000) {
-                let opacity = 1 - (distance / 12000);
-
-                ctx.strokeStyle = `rgba(0, 229, 255, ${opacity})`;
-                ctx.lineWidth = 0.3;
-
-                ctx.beginPath();
-                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                ctx.stroke();
-
-                let dxMouse = particlesArray[a].x - mouse.x;
-                let dyMouse = particlesArray[a].y - mouse.y;
-                let distMouse = dxMouse * dxMouse + dyMouse * dyMouse;
-
-                if (distMouse < 20000) {
-                    ctx.strokeStyle = "rgba(0, 229, 255, 0.2)";
+    function conectar() {
+        for (let a = 0; a < particlesArray.length; a++) {
+            for (let b = a; b < particlesArray.length; b++) {
+                let dx = particlesArray[a].x - particlesArray[b].x;
+                let dy = particlesArray[a].y - particlesArray[b].y;
+                let dist = dx * dx + dy * dy;
+                if (dist < 12000) {
+                    ctx.strokeStyle = `rgba(0, 229, 255, ${1 - dist / 12000})`;
+                    ctx.lineWidth = 0.3;
                     ctx.beginPath();
                     ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
                     ctx.stroke();
                 }
             }
         }
     }
-}
 
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particlesArray.forEach(p => { p.update(); p.draw(); });
+        conectar();
+        requestAnimationFrame(animate);
+    }
 
-    particlesArray.forEach(p => {
-        p.update();
-        p.draw();
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        init();
     });
 
-    conectarParticulas();
-
-
-
-    requestAnimationFrame(animate);
-}
-
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
     init();
-});
-
-init();
-animate();
+    animate();
+}

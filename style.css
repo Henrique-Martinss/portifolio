@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -150,17 +151,12 @@ body {
     box-shadow: 0 0 10px #00E5FF;
     border-radius: 50%;
     border: 4px solid var(--vidro);
-    /* animation: flutuar 5s ease-in-out infinite; */
 }
 
 .info {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.cabecalho-sub-titulo {
-    margin-top: 5px;
 }
 
 .topo {
@@ -231,11 +227,10 @@ h1 {
     text-align: center;
     width: 150px;
     box-shadow: 0 0 15px rgba(79, 70, 229, 0.2);
-    transition: transform 0.3s ease;
+    transition: all 0.5s ease;
     border: 1px solid var(--vidro);
     backdrop-filter: blur(5px);
     cursor: pointer;
-    transition: all 0.5s ease;
 }
 
 .habilidades-card:hover {
@@ -339,12 +334,6 @@ h1 {
     margin-bottom: 50px;
 }
 
-.projetos-imagem {
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
-}
-
 .caixa-texto-projeto {
     padding: 1.5rem;
 }
@@ -373,7 +362,6 @@ h1 {
 
 .botao-ver-tudo {
     border: none;
-    ;
     padding: 10px;
     cursor: pointer;
     border-radius: 8px;
@@ -431,7 +419,7 @@ h1 {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     max-width: 1200px;
-    margin-top: 0 auto;
+    margin: 0 auto;
 }
 
 .projetos-popup {
@@ -445,12 +433,6 @@ h1 {
 }
 
 .projetos-popup:hover {
-    border-radius: 16px;
-    backdrop-filter: blur(5px);
-    border: 1px solid var(--vidro);
-    overflow: hidden;
-    transition: all 0.5s ease;
-    cursor: pointer;
     box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
     transform: translateY(-10px) scale(1.03);
 }
@@ -459,62 +441,6 @@ h1 {
     width: 100%;
     height: 220px;
     object-fit: cover;
-}
-
-.contatos {
-    padding: 6rem 2rem;
-}
-
-.contatos-titulos {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-}
-
-.formulario-contato {
-    max-width: 600px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
-    padding: 2rem;
-    border: 1px solid var(--vidro);
-    border-radius: 16px;
-}
-
-.campo-form {
-    width: 100%;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--vidro);
-    border-radius: 8px;
-    color: var(--claro);
-    outline: none;
-}
-
-.campo-form:focus {
-    border-color: var(--secundaria);
-    box-shadow: 0 0 10px rgba(79, 70, 229, 0.3)
-}
-
-.grupo-form {
-    margin-bottom: 1.5rem;
-}
-
-.botao-form {
-    color: var(--claro);
-    background: linear-gradient(135deg, #25D366, #128C7E);
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%;
-    transition: all 0.5s ease;
-}
-
-.botao-form:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
 }
 
 .redes-caixa {
@@ -544,18 +470,6 @@ h1 {
     text-align: center;
     padding: 1rem 0;
     margin-top: 2rem;
-}
-
-@keyframes flutuar {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
 }
 
 #loader {
@@ -598,8 +512,77 @@ h1 {
     letter-spacing: 2px;
 }
 
-@media screen and (max-width: 768px) {
+.link-whatsapp {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 9999;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
 
+.link-whatsapp::before {
+    content: "";
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background-color: #25d366;
+    border-radius: 50%;
+    z-index: -1;
+    animation: pulse-green 2s infinite;
+}
+
+.link-whatsapp img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.link-whatsapp:hover img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+@keyframes pulse-green {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .link-whatsapp {
+        width: 60px;
+        height: 60px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .link-whatsapp::before {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+
+
+
+@media screen and (max-width: 768px) {
     .logo-header img {
         display: none;
     }
@@ -607,7 +590,7 @@ h1 {
     .menu-link {
         font-size: 18px;
     }
-    
+
     .navegacao {
         flex-direction: column;
         padding: 1rem;
@@ -618,7 +601,6 @@ h1 {
         align-items: center;
         gap: 1rem;
     }
-
 
     .cabecalho {
         flex-direction: column;
