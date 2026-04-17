@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://henriquemartins.vercel.app/sitemap.xml
