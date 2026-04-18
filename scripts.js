@@ -37,95 +37,157 @@ if (modal) {
 }
 
 // ===============================
-// 3. SISTEMA DE PARTÍCULAS (CANVAS)
+// 3. DOT GRID INTERATIVO (CANVAS)
 // ===============================
 const canvas = document.getElementById("particulas");
 if (canvas) {
     const ctx = canvas.getContext("2d");
-    const mouse = { x: null, y: null, radius: 120 };
+
+    // --- Configurações ---
+    const DOT_SPACING  = 30;    // distância entre pontos (px)
+    const DOT_RADIUS   = 1.6;   // tamanho base do ponto
+    const MOUSE_RADIUS = 100;   // raio de influência do mouse
+    const REPULSION    = 0.05;   // força de repulsão (suave)
+    const STIFFNESS    = 0.04;  // rigidez da mola (volta ao lugar)
+    const DAMPING      = 0.88;  // amortecimento (mais suave, menos oscilação)
+
+    let dots = [];
+    let mouse = { x: -9999, y: -9999 };
+
+    // --- Constrói a grade de pontos ---
+    function buildGrid() {
+        dots = [];
+        const cols = Math.ceil(canvas.width  / DOT_SPACING) + 1;
+        const rows = Math.ceil(canvas.height / DOT_SPACING) + 1;
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                const hx = c * DOT_SPACING;
+                const hy = r * DOT_SPACING;
+                dots.push({ hx, hy, x: hx, y: hy, vx: 0, vy: 0 });
+            }
+        }
+    }
+
+    // --- Redimensiona e reconstrói ---
+    function resize() {
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+        buildGrid();
+    }
+
+    window.addEventListener("resize", resize);
 
     window.addEventListener("mousemove", (e) => {
         mouse.x = e.clientX;
         mouse.y = e.clientY;
     });
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    window.addEventListener("mouseleave", () => {
+        mouse.x = -9999;
+        mouse.y = -9999;
+    });
 
-    let particlesArray = [];
-
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2;
-            this.speedX = (Math.random() - 0.5) * 0.5;
-            this.speedY = (Math.random() - 0.5) * 0.5;
-            this.angulo = Math.random() * Math.PI;
-            this.velRotacao = (Math.random() - 0.5) * 0.01;
-        }
-        update() {
-            let dx = mouse.x - this.x;
-            let dy = mouse.y - this.y;
-            let distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < mouse.radius) {
-                if (distance > 10) {
-                    this.x += dx * 0.03;
-                    this.y += dy * 0.03;
-                }
-                this.angulo += this.velRotacao;
-                this.x += Math.cos(this.angulo) * 1.5;
-                this.y += Math.sin(this.angulo) * 1.5;
-            }
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-        }
-        draw() {
-            ctx.fillStyle = "rgba(0, 229, 255, 0.3)";
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-
-    function init() {
-        particlesArray = [];
-        for (let i = 0; i < 120; i++) particlesArray.push(new Particle());
-    }
-
-    function conectar() {
-        for (let a = 0; a < particlesArray.length; a++) {
-            for (let b = a; b < particlesArray.length; b++) {
-                let dx = particlesArray[a].x - particlesArray[b].x;
-                let dy = particlesArray[a].y - particlesArray[b].y;
-                let dist = dx * dx + dy * dy;
-                if (dist < 12000) {
-                    ctx.strokeStyle = `rgba(0, 229, 255, ${1 - dist / 12000})`;
-                    ctx.lineWidth = 0.3;
-                    ctx.beginPath();
-                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                    ctx.stroke();
-                }
-            }
-        }
-    }
-
+    // --- Loop de animação ---
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particlesArray.forEach(p => { p.update(); p.draw(); });
-        conectar();
+
+        for (const dot of dots) {
+            // Repulsão do mouse
+            const dxM = dot.x - mouse.x;
+            const dyM = dot.y - mouse.y;
+            const distM = Math.sqrt(dxM * dxM + dyM * dyM);
+
+            if (distM < MOUSE_RADIUS && distM > 0) {
+                const force = (MOUSE_RADIUS - distM) / MOUSE_RADIUS;
+                const angle = Math.atan2(dyM, dxM);
+                dot.vx += Math.cos(angle) * force * REPULSION;
+                dot.vy += Math.sin(angle) * force * REPULSION;
+            }
+
+            // Mola de retorno à posição original
+            dot.vx += (dot.hx - dot.x) * STIFFNESS;
+            dot.vy += (dot.hy - dot.y) * STIFFNESS;
+
+            // Amortecimento
+            dot.vx *= DAMPING;
+            dot.vy *= DAMPING;
+
+            // Posição
+            dot.x += dot.vx;
+            dot.y += dot.vy;
+
+            // Visual: tamanho e opacidade baseados na proximidade do mouse
+            const dxV    = dot.x - mouse.x;
+            const dyV    = dot.y - mouse.y;
+            const distV  = Math.sqrt(dxV * dxV + dyV * dyV);
+            const prox   = Math.max(0, 1 - distV / MOUSE_RADIUS);
+
+            const radius = DOT_RADIUS + prox * 1.5;
+            const alpha  = 0.15 + prox * 0.50;
+
+            ctx.beginPath();
+            ctx.arc(dot.x, dot.y, radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0, 229, 255, ${alpha})`;
+            ctx.fill();
+        }
+
         requestAnimationFrame(animate);
     }
 
-    window.addEventListener("resize", () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        init();
-    });
-
-    init();
+    resize();
     animate();
 }
+
+// ===============================
+// 4. CARROSSEL DE CERTIFICADOS
+// ===============================
+(function () {
+    const track   = document.getElementById("certTrack");
+    const btnPrev = document.getElementById("certPrev");
+    const btnNext = document.getElementById("certNext");
+    const dotsEl  = document.getElementById("certDots");
+
+    if (!track || !btnPrev || !btnNext || !dotsEl) return;
+
+    const cards = track.querySelectorAll(".cert-card");
+    const total = cards.length;
+    let current = 0;
+    let timer;
+
+    // Gera os dots dinamicamente
+    cards.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.className = "carrossel-dot" + (i === 0 ? " ativo" : "");
+        dot.setAttribute("aria-label", `Certificado ${i + 1}`);
+        dot.addEventListener("click", () => goTo(i));
+        dotsEl.appendChild(dot);
+    });
+
+    function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dotsEl.querySelectorAll(".carrossel-dot").forEach((d, i) => {
+            d.classList.toggle("ativo", i === current);
+        });
+        resetTimer();
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(() => goTo(current + 1), 5000);
+    }
+
+    btnPrev.addEventListener("click", () => goTo(current - 1));
+    btnNext.addEventListener("click", () => goTo(current + 1));
+
+    // Pausa o auto-play ao passar o mouse no carrossel
+    const container = document.querySelector(".carrossel-container");
+    if (container) {
+        container.addEventListener("mouseenter", () => clearInterval(timer));
+        container.addEventListener("mouseleave", resetTimer);
+    }
+
+    resetTimer();
+})();
+
+
